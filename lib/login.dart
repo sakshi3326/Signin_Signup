@@ -1,4 +1,7 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:signin_signup/signup.dart';
+import 'package:get/get.dart';
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
@@ -179,7 +182,8 @@ class _LoginState extends State<Login> {
                   color: Colors.black,
                   fontWeight: FontWeight.bold,
                   fontSize: 20
-              )
+              ),
+                recognizer: TapGestureRecognizer()..onTap=()=>Get.to(()=>SignUp())
               )
             ]
           )

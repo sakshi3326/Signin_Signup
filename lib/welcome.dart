@@ -37,15 +37,33 @@ class Welcome extends StatelessWidget {
             ),
 
           ),
-          SizedBox(height: 30,),
-          Text(
-            "Welcome",
-            style: TextStyle(
-              fontSize: 30,
-              fontWeight: FontWeight.bold,
-              color: Colors.black54
+          SizedBox(height: 60,),
+          Container(
+            width: w,
+            margin: const EdgeInsets.only(left: 20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "Welcome",
+                  style: TextStyle(
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black54
+                  ),
+                ),
+                Text(
+                  "abc@gmail.com",
+                  style: TextStyle(
+                      fontSize: 30,
+
+                      color: Colors.grey[500]
+                  ),
+                ),
+              ],
             ),
           ),
+          SizedBox(height: 150,),
           Container(
             width: w*0.5,
             height: h*0.1,

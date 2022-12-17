@@ -1,4 +1,6 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:signin_signup/login.dart';
 
 class SignUp extends StatelessWidget {
@@ -151,6 +153,16 @@ class SignUp extends StatelessWidget {
                   fontSize: 20,
                 ),
               ),
+            ),
+          ),
+          RichText(
+            text: TextSpan(
+              recognizer: TapGestureRecognizer()..onTap=()=>Get.back(),
+              text: "Have an account?",
+              style: TextStyle(
+                fontSize: 20,
+                color: Colors.grey[500]
+              )
             ),
           ),
           SizedBox(height: w*0.04),
