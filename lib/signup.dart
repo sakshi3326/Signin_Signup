@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:signin_signup/auth_controller.dart';
 import 'package:signin_signup/login.dart';
 
 class SignUp extends StatelessWidget {
@@ -8,6 +9,8 @@ class SignUp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var emailController = TextEditingController();
+    var passwordController = TextEditingController();
 
     List images = [
       "g.png",
@@ -68,6 +71,7 @@ class SignUp extends StatelessWidget {
                       ]
                   ),
                   child: TextField(
+                    controller: emailController,
                     decoration: InputDecoration(
                         hintText: "E-mail ID",
                         prefixIcon: Icon(Icons.email),
@@ -106,6 +110,8 @@ class SignUp extends StatelessWidget {
                       ]
                   ),
                   child: TextField(
+                    controller: passwordController,
+                    obscureText: true,
                     decoration: InputDecoration(
                         hintText: "Password",
                         prefixIcon: Icon(Icons.lock),
@@ -136,21 +142,26 @@ class SignUp extends StatelessWidget {
             ),
           ),
           SizedBox(height: 30,),
-          Container(
-            width: w*0.5,
-            height: h*0.1,
-            alignment: Alignment.bottomCenter,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                color: Colors.orange
-            ),
+          GestureDetector(
+            onTap: (){
+              AuthController.instance.register(emailController.text.trim(), passwordController.text.trim());
+            },
+            child: Container(
+              width: w*0.5,
+              height: h*0.1,
+              alignment: Alignment.bottomCenter,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  color: Colors.orange
+              ),
 
-            child: Center(
-              child: Text(
-                "Sign up",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 20,
+              child: Center(
+                child: Text(
+                  "Sign up",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
+                  ),
                 ),
               ),
             ),
@@ -185,6 +196,7 @@ class SignUp extends StatelessWidget {
                     backgroundColor: Colors.grey[500],
                     child: CircleAvatar(
                       radius: 25,
+
                       backgroundImage: AssetImage(
                         "images/"+images[index]
                       ),

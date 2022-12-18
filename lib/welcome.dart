@@ -1,8 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:signin_signup/auth_controller.dart';
 
 class Welcome extends StatelessWidget {
-  const Welcome({Key? key}) : super(key: key);
+  String email;
+   Welcome({Key? key, required this.email}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +55,7 @@ class Welcome extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  "abc@gmail.com",
+                  email,
                   style: TextStyle(
                       fontSize: 30,
 
@@ -64,21 +66,26 @@ class Welcome extends StatelessWidget {
             ),
           ),
           SizedBox(height: 150,),
-          Container(
-            width: w*0.5,
-            height: h*0.1,
-            alignment: Alignment.bottomCenter,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                color: Colors.orange
-            ),
+          GestureDetector(
+            onTap: (){
+              AuthController.instance.logOut();
+            },
+            child: Container(
+              width: w*0.5,
+              height: h*0.1,
+              alignment: Alignment.bottomCenter,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  color: Colors.orange
+              ),
 
-            child: Center(
-              child: Text(
-                "Sign out",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 20,
+              child: Center(
+                child: Text(
+                  "Sign out",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
+                  ),
                 ),
               ),
             ),

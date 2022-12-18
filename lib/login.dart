@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:signin_signup/auth_controller.dart';
 import 'package:signin_signup/signup.dart';
 import 'package:get/get.dart';
 
@@ -11,6 +12,8 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+  var emailController = TextEditingController();
+  var passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     double w = MediaQuery.of(context).size.width;
@@ -70,6 +73,7 @@ class _LoginState extends State<Login> {
                     ]
                   ),
                   child: TextField(
+                    controller: emailController,
                        decoration: InputDecoration(
                          hintText: "E-mail ID",
                          prefixIcon: Icon(Icons.email),
@@ -108,6 +112,8 @@ class _LoginState extends State<Login> {
                       ]
                   ),
                   child: TextField(
+                    controller: passwordController,
+                    obscureText: true,
                     decoration: InputDecoration(
                       hintText: "Password",
                         prefixIcon: Icon(Icons.lock),
@@ -149,21 +155,26 @@ class _LoginState extends State<Login> {
             ),
           ),
           SizedBox(height: 30,),
-          Container(
-            width: w*0.5,
-            height: h*0.1,
-            alignment: Alignment.bottomCenter,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20),
-                color: Colors.orange
-            ),
+          GestureDetector(
+            onTap: (){
+              AuthController.instance.login(emailController.text.trim(), passwordController.text.trim());
+            },
+            child: Container(
+              width: w*0.5,
+              height: h*0.1,
+              alignment: Alignment.bottomCenter,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                  color: Colors.orange
+              ),
 
-            child: Center(
-              child: Text(
-                "Sign in",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 20,
+              child: Center(
+                child: Text(
+                  "Sign in",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
+                  ),
                 ),
               ),
             ),

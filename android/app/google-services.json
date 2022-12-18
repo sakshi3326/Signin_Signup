@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "824150828523",
+    "project_id": "signin-signup-c4b7c",
+    "storage_bucket": "signin-signup-c4b7c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:824150828523:android:7905be3e57c676b03225ae",
+        "android_client_info": {
+          "package_name": "com.singin_signup.db.FirebaseApp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "824150828523-pulrsf8ocr5tnonk38gm208ei123mfkm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBkLe893GmQMylj2U5CvpUxau4YXI6D1-U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "824150828523-pulrsf8ocr5tnonk38gm208ei123mfkm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
